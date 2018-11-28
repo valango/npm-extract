@@ -15,12 +15,15 @@ After installing via GIT, go to project directory and use terminal command:
 npm run make-global
 ```
 
-# Usage
-
+# Sample use case
 ```bash
-npm-extract
+cd PROJECT_1
+npm-extract > PROJECT/merge.sh
+cd PROJECT
+sh merge.sh
 ```
-This command would send something like the sample below into standard output:
+
+The utility would produce output similar to this:
 ```bash
 npm i -S @rgrove/parse-xml@1.1.1
 npm i -S compression@1.7.2
