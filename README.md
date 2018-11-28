@@ -8,12 +8,11 @@ just copying entries from one `package.json` file into another would likely lead
 to corrupt `package-lock.json` file.
 
 # Installation
-**Warning:** this chapter is a stub - no NPM package has been published yet!
+**Warning:** no NPM package has been published yet!
 
-Either through cloning with git or by using [npm](http://npmjs.org) (the recommended way):
-
+After installing via GIT, go to project directory and use terminal command:
 ```bash
-npm install -g npm-extract
+npm run make-global
 ```
 
 # Usage

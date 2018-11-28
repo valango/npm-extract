@@ -18,7 +18,7 @@
     "url": "git+https://github.com/valango/npm-extract"
   },
   "scripts": {
-    "build-locally": "npm run pack && sudo npm i -g ../npm-extract.tar",
+    "make-global": "npm run pack && npm i -g ../npm-extract.tar && rm ../npm-extract.tar",
     "pack": "cd .. && tar -c -f npm-extract.tar --exclude \".*\" npm-extract",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
