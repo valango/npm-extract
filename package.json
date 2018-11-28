@@ -6,12 +6,28 @@
   "bin": {
     "npm-extract": "./bin/npm-extract.js"
   },
+  "keywords": [
+    "development",
+    "npm",
+    "project",
+    "script",
+    "utility"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/valango/npm-extract"
+  },
   "scripts": {
-    "try": "npm run pack && sudo npm i -g ../npm-extract.tar",
+    "build-locally": "npm run pack && sudo npm i -g ../npm-extract.tar",
     "pack": "cd .. && tar -c -f npm-extract.tar --exclude \".*\" npm-extract",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {}
+  "author": {
+    "name": "Villem Alango",
+    "url": "http://github.com/valango"
+  },
+  "bugs": {
+    "url": "https://github.com/valango/npm-extract"
+  },
+  "license": "ISC"
 }

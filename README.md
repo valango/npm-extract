@@ -29,3 +29,6 @@ npm i -D mocha@5.2.0
 npm i -D chai@4.1.2
 ```
 If there is no `package.json` file in current directory, program will terminate with error.
+
+# License
+ISC
