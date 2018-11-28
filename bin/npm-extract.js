@@ -1,31 +1,35 @@
 #!/usr/bin/env node
 'use strict'
 
-// const _        = require('lodash')
-const path     = require('path')
-const fs       = require('fs')
-const dir      = '/Users/villema/dev/aloe'
-const filePath = path.join(dir, 'package.json')
-const sections = {D: 'devDependencies', S: 'dependencies'}
-const stdout   = process.stdout
+// var _        = require('lodash')
+var path     = require('path')
+var fs       = require('fs')
+var dir      = process.cwd()
+var filePath = path.join(dir, 'package.json')
+var sections = {D: 'devDependencies', S: 'dependencies'}
+var stdout   = process.stdout
 
-let pkg = void 0
+var pkg = void 0
 
-const generate = (section) => {
-  let list = sections[section], coll = pkg[list]
+var generate = (section) => {
+  var list = sections[section], coll = pkg[list]
 
-  for (const key of Object.keys(coll)) {
-    const data = coll[key]
-    const r    = /^\^?([\d\.]+)/.exec(data)
-    if (!r) throw new Error(`Can't parse "${key}": "${data}" in "${list}"`)
-    stdout.write(`npm i -${section} ${key}@${r[1]}\n`)
+  if (coll) {
+    for (var key of Object.keys(coll)) {
+      var data = coll[key]
+      var r    = /^\^?([\d\.]+)/.exec(data)
+      if (!r) throw new Error(`Can't parse "${key}": "${data}" in "${list}"`)
+      stdout.write(`npm i -${section} ${key}@${r[1]}\n`)
+    }
   }
 }
 
 try {
   pkg = JSON.parse(fs.readFileSync(filePath))
 } catch (e) {
-  console.error(e)
+  console.log(e)
+  var m = e.code === 'ENOENT' ? 'No such file: \"' + filePath + '"' : e.message
+  process.stderr.write(m + '\n')
   process.exit(1)
 }
 generate('S')
