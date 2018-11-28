@@ -1,0 +1,16 @@
+{
+  "name": "npm-extract",
+  "version": "1.0.0",
+  "description": "Generates installation commands from existing NPM package",
+  "main": "./bin/npm-extract",
+  "bin": {
+    "npm-extract": "./bin/npm-extract.js"
+  },
+  "scripts": {
+    "pack": "cd .. && tar -c -f npm-extract.tar --exclude \".*\" npm-extract",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {}
+}
