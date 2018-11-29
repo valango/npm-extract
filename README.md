@@ -17,20 +17,21 @@ npm run make-global
 
 # Sample use case
 ```bash
-cd PROJECT_1
-npm-extract > PROJECT/merge.sh
-cd PROJECT
+npm-extract < ANOTHERPOJECT/package.json > merge.sh
 sh merge.sh
 ```
 
 The utility would produce output similar to this:
 ```bash
-npm i -S @rgrove/parse-xml@1.1.1
-npm i -S compression@1.7.2
-npm i -D mocha@5.2.0
-npm i -D chai@4.1.2
+npm i -S @rgrove/parse-xml@1.1.1 # =1.1.1
+npm i -S compression@1.7.2       # ^1.7.2
+npm i -D mocha@5.2.0   # ^5.2.0
+npm i -D chai@4.1.2    # ^4.1.2
 ```
-If there is no `package.json` file in current directory, program will terminate with error.
+
+The utility will check _`stdin`_ and if there is nothing there, it will read
+`package.json` file in current directory. 
+If both fail, then program will terminate with error.
 
 # License
 ISC
