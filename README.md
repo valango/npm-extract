@@ -7,6 +7,9 @@ This may be useful when merging different code projects together - because
 just copying entries from one `package.json` file into another would likely lead
 to corrupt `package-lock.json` file.
 
+**NOTE:** Please let me know, if there is similar utility published via NPM already!
+I was'nt able to find such so, being in hurry, I wrote this one.
+
 # Installation
 **Warning:** no NPM package has been published yet!
 
