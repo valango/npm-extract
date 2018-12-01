@@ -15,10 +15,21 @@ function generate (section) {
 
   if (coll) {
     for (var key of Object.keys(coll)) {
-      var data = coll[key]
-      var r    = /^([^\d])*([\d\.]+)/.exec(data)
-      if (!r) throw new Error(`Can't parse "${key}": "${data}" in "${list}"`)
-      stdout.write(`npm i -${section} ${key}@${r[2]}\t# ${data}\n`)
+      var d = coll[key]
+      var r = /^([^\d])*(\d[\d\.]+)/.exec(d)
+      //  Is it a version string?
+      if (r) {
+        stdout.write(`npm i -${section} ${key}@${r[2]}\t# ${d}\n`)
+      } else {
+        //  Is it an url?
+        r = /^\w+(\+\w+)?:\/\/\w+/.exec(d)
+        if (r) {
+          stdout.write(`npm i -${section} ${d}\n`)
+        } else {
+          stdout.write(
+            `# !!!! Did not understand this in "${list}": \n# "${key}": "${d}"\n`)
+        }
+      }
     }
   }
 }
